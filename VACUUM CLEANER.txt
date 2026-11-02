@@ -1,0 +1,34 @@
+rooms = {
+    'A': input("Enter status of Room A (Dirty/Clean): "),
+    'B': input("Enter status of Room B (Dirty/Clean): ")
+}
+
+location = input("Enter starting location (A/B): ").upper()
+
+print("Initial Environment:", rooms)
+print("Initial Location:", location)
+print("\nVacuum Cleaner Working:\n")
+
+while 'Dirty' in rooms.values():
+
+    print("Current Location:", location)
+    print("Room Status:", rooms[location])
+
+    if rooms[location] == 'Dirty':
+        print("Action: SUCK")
+        rooms[location] = 'Clean'
+
+    elif location == 'A':
+        print("Action: RIGHT")
+        location = 'B'
+
+    else:
+        print("Action: LEFT")
+        location = 'A'
+
+    print("Updated Environment:", rooms)
+    print("--------------------------")
+
+print("\nFinal Environment:", rooms)
+print("Both rooms are CLEAN.")
+print("Goal Achieved!")

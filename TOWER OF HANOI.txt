@@ -1,0 +1,56 @@
+n = int(input("Enter number of disks: "))
+
+rods = {
+    'A': list(range(n, 0, -1)),
+    'B': [],
+    'C': []
+}
+
+step = 0
+
+def display():
+    print("A:", rods['A'])
+    print("B:", rods['B'])
+    print("C:", rods['C'])
+    print("--------------------")
+
+
+def hanoi(n, source, auxiliary, destination):
+    global step
+
+    if n == 1:
+        # Move top disk
+        disk = rods[source].pop()
+        rods[destination].append(disk)
+
+        step += 1
+
+        print("\nStep", step)
+        print("Move disk", disk, "from",
+              source, "to", destination)
+
+        display()
+        return
+
+    # Move n-1 disks to auxiliary
+    hanoi(n-1, source, destination, auxiliary)
+
+    # Move largest disk to destination
+    hanoi(1, source, auxiliary, destination)
+
+    # Move remaining disks to destination
+    hanoi(n-1, auxiliary, source, destination)
+
+
+print("Initial State:")
+display()
+
+print("Tower of Hanoi Solution:\n")
+
+hanoi(n, 'A', 'B', 'C')
+
+print("Final State:")
+display()
+
+print("Total Moves:", step)
+print("Goal Achieved!")
