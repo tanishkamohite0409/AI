@@ -1,0 +1,42 @@
+memory = {}
+
+while True:
+    print("\n1. Add Question")
+    print("2. Chat with Bot")
+    print("3. Exit")
+
+    ch = input("Enter choice: ")
+
+    if ch == "1":
+        q = input("Enter question: ").lower()
+        a = input("Enter answer: ")
+        memory[q] = a
+        print("Bot: Question saved!")
+
+    elif ch == "2":
+        q = input("You: ").lower()
+
+        if q in memory:
+            print("Bot:", memory[q])
+
+        elif "hello" in q or "hi" in q:
+            print("Bot: Hello!")
+
+        elif "what is your name" in q:
+            print("Bot: I am an AI Chatbot.")
+
+        elif "how are you" in q:
+            print("Bot: I am fine!thankyou")
+
+        elif "bye" in q:
+            print("Bot: See you again!")
+
+        else:
+            print("Bot: Sorry, I don't know.")
+
+    elif ch == "3":
+        print("Bot: Thank you!")
+        break
+
+    else:
+        print("Invalid choice!")
