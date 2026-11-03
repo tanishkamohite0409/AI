@@ -1,9 +1,18 @@
 from collections import deque
-start = (0, 0)
-goal = (2, 2)
-obstacles = [(1, 1)]
-moves = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+sx = int(input("Enter start row: "))
+sy = int(input("Enter start column: "))
 
+gx = int(input("Enter goal row: "))
+gy = int(input("Enter goal column: "))
+
+ox = int(input("Enter obstacle row: "))
+oy = int(input("Enter obstacle column: "))
+
+start = (sx, sy)
+goal = (gx, gy)
+
+obstacles = [(ox, oy)]
+moves = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 queue = deque([(start, [start])])
 visited = {start}
 
